@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1584286896 source:c:\programs\2020\algorithm\3.10\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<stdio.h>
+	<math.h>
+
