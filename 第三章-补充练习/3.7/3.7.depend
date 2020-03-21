@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1584773754 source:c:\programs\2020\11111\3.7\main.cpp
+	<iostream>
+	<algorithm>
+	<math.h>
+
