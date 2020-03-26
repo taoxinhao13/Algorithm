@@ -4,7 +4,7 @@ using namespace std;
 /*
 平面上有n个点，若A的横纵坐标都大于等于点B，则A支配B
 求出所有不被支配的点
-平均复杂度O(nlgn)
+平均复杂度O(N)
 */
 struct node{
     int x;
@@ -22,13 +22,11 @@ void FindPoints(node A[],node result[],int n)
     }
     //先找出横坐标最大元素
     int i,tempnum=0;
-    int index = 0;
     node Max = A[0];
     for (i=1;i<n;i++)
     {
         if (A[i].x>Max.x || (A[i].x==Max.x && A[i].y>Max.y))
         {
-            index = i;
             Max = A[i];
         }
     }
@@ -37,7 +35,7 @@ void FindPoints(node A[],node result[],int n)
     //取出其他y大于该点的，才可能满足
     for (i=0;i<n;i++)
     {
-        if (A[i].y>Max.y && index!=i)
+        if (A[i].y>Max.y)
         {
             B[tempnum++] = A[i];
         }
