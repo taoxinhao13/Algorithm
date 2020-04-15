@@ -3,33 +3,32 @@
 using namespace std;
 
 /**
-全是0则坐标输出(0,0),第一个元素为(1,1)
+输出为最大的矩阵的边长大小
+时间和空间复杂度都是0(n^2)
 */
 int main()
 {
-    int n,i,j,k,x=-1,y=-1,Count=0;
+    int n,i,j,Count=0;
     cin>>n;
     bool A[n][n];
-    int R[n][n];
+    int R[n+1][n+1];
     for (i=0;i<n;i++){
         for (j=0;j<n;j++){
             cin>>A[i][j];
-            R[i][j] = A[i][j];
         }
     }
-    for (k=2;k<=n;k++){
-        for (i=0;i<n-k+1;i++){
-            for (j=0;j<n-k+1;j++){
-                if (R[i][j] == k-1 && R[i+1][j] == k-1 && R[i][j+1] == k-1 && R[i+1][j+1] == k-1){
-                    R[i][j]=k;
-                    Count = k;
-                    x = i;
-                    y = j;
-                }
-            }
+
+    for (i=0;i<=n;i++){
+        R[0][i] = 0;
+        R[i][0] = 0;
+    }
+
+    for (i=1;i<=n;i++){
+        for (j=1;j<=n;j++){
+            R[i][j] = A[i-1][j-1]?min(min(R[i-1][j-1],R[i-1][j]),R[i][j-1])+1:0;
+            Count = max(Count,R[i][j]);
         }
     }
-    cout<<"The size is:"<<Count<<"*"<<Count<<endl;
-    cout<<"The start position is:("<<x+1<<","<<y+1<<")";
+    cout<<Count<<endl;
     return 0;
 }
