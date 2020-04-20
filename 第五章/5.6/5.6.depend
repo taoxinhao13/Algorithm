@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1587399108 source:c:\programs\2020\11111\5.6\main.cpp
+	<iostream>
+	<algorithm>
+
