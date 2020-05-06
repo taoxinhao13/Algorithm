@@ -10,8 +10,6 @@ int main()
     int m = s2.size(),i;
     int F[m]={0};
 
-    ComputePrefix(F,s2,m);
-
     int f2=0; //模式串的哈希值
     int f1=0; //目标串当前m位子串的哈希值
     int c = 1; //m位k进制数100000(共m位)的哈希值
